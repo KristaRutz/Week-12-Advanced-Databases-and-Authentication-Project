@@ -1,0 +1,14 @@
+@using BookClub.ViewModels
+@model LoginViewModel
+
+<h1>Log In</h1>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Email)
+  @Html.TextBoxFor(m => m.Email)
+
+  @Html.LabelFor(m => m.Password)
+  @Html.PasswordFor(m => m.Password)
+
+  <input type="submit" value="Log in" class="btn btn-default" />  
+}
