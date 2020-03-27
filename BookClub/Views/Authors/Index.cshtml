@@ -1,0 +1,21 @@
+@using BookClub.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@* @addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers" *@
+
+@* @{
+  Layout = "_Layout";
+} *@
+
+<h1>Authors</h1>
+
+<table>
+  @foreach (Author author in Model)
+  {
+    <td>@author.FirstName</td>
+    <td>@author.LastName</td>
+    <td><a asp-action="Details">View Details</a></td>
+  }
+</table>
+
+<a asp-action="Create">Add author</a>
+<a asp-controller="Home">Home</a>

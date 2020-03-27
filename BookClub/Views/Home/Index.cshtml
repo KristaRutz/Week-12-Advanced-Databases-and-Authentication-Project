@@ -1,9 +1,15 @@
-@{
-  Layout = "_Layout";
-}
-
-<h1>Book Club: Homepage</h1>
-
+<h1 class="jumbotron">Book Club: Homepage</h1>
+<br>
+<div class="row">
+  <div class="col col-sm-6">
+    <h2>books</h2>
+  </div>
+  <div class="col col-sm-6">
+    <h2>authors</h2>
+  </div>
+</div>
+<br>
+<br>
 <p>@Html.ActionLink("Enter site", "Index", "Account")</p>
 <p>@Html.ActionLink("See all books", "Index", "Books")</p>
 <p>@Html.ActionLink("See all authors", "Index", "Authors")</p>
