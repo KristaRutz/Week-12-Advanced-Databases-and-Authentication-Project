@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" method="post">
     <div class="form-group">
-      <button class="btn btn-light mb-2"><a  asp-controller="Home">Book Club Home</a></button>
+      <button class="btn btn-light mb-2"><a  asp-controller="Home" asp-action="Index">Book Club Home</a></button>
       <button class="form-control btn btn-light mb-2"><a  asp-controller="Account" asp-action="Index">My Account</a></button>
       @if (User.Identity.IsAuthenticated)
       {

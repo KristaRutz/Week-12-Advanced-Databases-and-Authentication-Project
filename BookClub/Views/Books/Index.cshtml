@@ -3,14 +3,16 @@
 <table>
   @foreach (Book book in Model)
   {
-    <td>@book.Title</td>
-    @* <td>
-      @foreach (AuthorBook author in book.Authors)
-      {
-        author.
-      }
-    </td> *@
-    <td><a asp-action="Details">View Details</a></td>
+    <tr>
+      <td>@book.Title</td>
+      @* <td>
+        @foreach (AuthorBook author in book.Authors)
+        {
+          author.
+        }
+      </td> *@
+      <td><a asp-action="Details">View Details</a></td>
+    </tr>
   }
 </table>
 

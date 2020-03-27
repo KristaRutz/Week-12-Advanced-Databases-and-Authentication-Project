@@ -3,11 +3,12 @@
 <table>
   @foreach (Author author in Model)
   {
-    <td>@author.FirstName</td>
-    <td>@author.LastName</td>
-    <td><a asp-action="Details">View Details</a></td>
+    <tr>
+      <td>@author.FirstName</td>
+      <td>@author.LastName</td>
+      <td><a asp-action="Details">View Details</a></td>
+    </tr>
   }
 </table>
-
+<br>
 <a asp-action="Create">Add author</a>
-<a asp-controller="Home">Home</a>
