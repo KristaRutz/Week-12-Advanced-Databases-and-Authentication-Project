@@ -36,7 +36,7 @@ div#header {
   top: 0px;
   left: 0px;
   width: 100%;
-  background-color: rgb(227, 227, 227);
+  background-color: #e9ecef;
   padding: 12px;
 }
 
@@ -55,7 +55,7 @@ div.container {
 }
 
 div#footer {
-  background-color: rgb(230, 71, 71);
+  background-color: #e9ecef;
   position: fixed;
   bottom: 0px;
   left: 0px;
