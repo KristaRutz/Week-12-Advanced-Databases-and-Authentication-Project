@@ -1,4 +1,4 @@
-namespace ToDoList.ViewModels
+namespace BookClub.ViewModels
 {
   public class LoginViewModel
   {
