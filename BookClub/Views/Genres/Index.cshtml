@@ -1,0 +1,17 @@
+<h1>Genres</h1>
+
+<table>
+  @foreach (Genre genre in Model)
+  {
+    <td>@genre.Name</td>
+    @* <td>
+      @foreach (AuthorGenre author in Genre.Authors)
+      {
+        author.
+      }
+    </td> *@
+    <td><a asp-action="Details">View Details</a></td>
+  }
+</table>
+
+<a asp-action="Create">Add Genre</a>
