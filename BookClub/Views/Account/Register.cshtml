@@ -1,0 +1,24 @@
+@using BookClub.ViewModels
+@model RegisterViewModel
+
+<h1>Sign Up</h1>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+  <div class="form-group">
+    @Html.LabelFor(user => user.Email)
+    @Html.TextBoxFor(user => user.Email)
+  </div>
+  <div class="form-group">
+    <input asp-for="Email">
+    @Html.LabelFor(user => user.Email)
+    @* @Html.TextBoxFor(user => user.Email) *@
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(user => user.ConfirmPassword)
+    @Html.PasswordFor(user => user.ConfirmPassword)
+  </div>
+  <input type="submit" value="Register">
+  <small class="form-text text-muted">Already have an account? <a asp-action="Login">Sign in.</a></small>
+}
+
