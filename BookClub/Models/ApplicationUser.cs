@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
-namespace WritersClub.Models
+namespace BookClub.Models
 {
   public class ApplicationUser : IdentityUser
   {

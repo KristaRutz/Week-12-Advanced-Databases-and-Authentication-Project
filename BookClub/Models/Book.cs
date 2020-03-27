@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using System;
 
 namespace BookClub.Models
@@ -6,7 +8,8 @@ namespace BookClub.Models
   {
     public int BookId {get;set;}
     public string Title {get;set;}
-    public int PublicationYear {get;set;}
+    public DateTime PublicationYear {get;set;}
+    public string ISBN {get;set;}
     public virtual ICollection<AuthorBook> Authors {get;set;}
     public virtual ICollection<BookGenre> Genres {get;set;}
 
