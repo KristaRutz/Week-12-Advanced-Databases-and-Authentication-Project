@@ -1,0 +1,16 @@
+@model BookClub.Models.Book
+
+<h1>Delete Book?</h1>
+
+<div class="alert alert-danger" role="alert">
+  Are you sure you want to delete <em>@Model.Title</em>? This action cannot be undone.
+</div>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+  <div class="form-group">
+    <input class="btn btn-default" type="submit" value="Delete permanently" asp-action="Delete" asp-route-id="@Model.BookId">
+    <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
+  </div>
+}

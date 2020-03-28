@@ -1,21 +1,35 @@
 @model BookClub.Models.Author
 
 <h1>@Model.Name</h1>
-
+<hr>
 <h4>Works</h4>
+<hr>
 @if (@Model.Books.Count == 0)
 {
-    <p>No books found.</p>
-}
-
-@foreach (var join in @Model.Books)
-{
-  <div class="form-group">
-    <p>@join.Book.Title</p>
-    @using (Html.BeginForm("DeleteJoin", "Authors"))
-    {
-      @Html.Hidden("joinId", @join.AuthorBookId)
-      <input class="btn btn-light btn-sm" type="submit" value="Delete this work"/>
-    }
+  <p>No books found.</p>
+  <div>
+    <a class="btn btn-light" asp-action="AddBook" asp-route-id="@Model.AuthorId">Add work?</a>
   </div>
 }
+else
+{
+  @foreach (var join in @Model.Books)
+  {
+    <div class="form-group">
+      <p>@join.Book.Title</p>
+      @using (Html.BeginForm("DeleteJoin", "Authors"))
+      {
+        @Html.Hidden("joinId", @join.AuthorBookId)
+        <input class="btn btn-light btn-sm" type="submit" value="Remove this work"/>
+      }
+    </div>
+  }
+  <div>
+    <a class="btn btn-light" asp-action="AddBook" asp-route-id="@Model.AuthorId">Add work?</a>
+  </div>
+}
+<hr>
+<div>
+  <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.AuthorId">Edit author</a>
+  <a class="btn btn-light" asp-action="CheckDelete" asp-route-id="@Model.AuthorId">Delete author</a>
+</div>

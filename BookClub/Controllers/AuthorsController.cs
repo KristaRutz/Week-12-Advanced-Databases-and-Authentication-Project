@@ -62,5 +62,20 @@ namespace BookClub.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult CheckDelete(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
+      return View("Delete", thisAuthor);
+    }
+
+    [HttpPost]
+    public ActionResult Delete(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
+      _db.Authors.Remove(thisAuthor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

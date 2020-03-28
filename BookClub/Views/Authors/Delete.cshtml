@@ -1,0 +1,15 @@
+@model BookClub.Models.Author
+
+<h1>Delete Author?</h1>
+
+<div class="alert alert-danger" role="alert">
+  Are you sure you want to delete <em>@Model.Name</em>? This action cannot be undone.
+</div>
+
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    <input class="btn btn-default" type="submit" value="Delete permanently" asp-action="Delete" asp-route-id="@Model.AuthorId">
+    <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
+  </div>
+}
