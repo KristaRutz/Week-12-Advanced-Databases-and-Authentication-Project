@@ -8,7 +8,6 @@ namespace BookClub.Models
   {
     public int BookId { get; set; }
 
-    [Required]
     public string Title { get; set; }
 
     [Display(Name = "Publication year")]

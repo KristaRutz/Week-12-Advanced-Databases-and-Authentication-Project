@@ -12,6 +12,7 @@
         }
       </td> *@
       <td><a asp-action="Details">View Details</a></td>
+      <td>@Html.ActionLink("Add author", "AddAuthor", new { id = book.BookId })</td>
     </tr>
   }
 </table>

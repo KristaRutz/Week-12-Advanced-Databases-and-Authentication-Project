@@ -5,15 +5,19 @@
 @using (Html.BeginForm())
 {
   <div class="form-group">
-    @Html.LabelFor(m => m.FirstName)
-    @Html.TextBoxFor(m => m.FirstName)
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title)
   </div>
   <div class="form-group">
-    @Html.LabelFor(m => m.LastName)
-    @Html.TextBoxFor(m => m.LastName)
+    @Html.LabelFor(m => m.PublicationYear)
+    <input type="date" asp-for="PublicationYear">
   </div>
   <div class="form-group">
-    <input type="submit" value="Add Author">
+    @Html.LabelFor(m => m.ISBN)
+    @Html.TextBoxFor(m => m.ISBN)
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Add Book">
     <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
   </div>
 }
