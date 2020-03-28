@@ -1,13 +1,29 @@
 # Book Club Database (C# ASP .NET Application)
 
-#### A web-based application where the user can track information about books, hosted on [GitHub](https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project). _Last Updated 03.27.2020._
+## By _**Krista Rutz**_
 
-#### By _**Krista Rutz**_
+#### A web-based application where the user can track information about books, hosted on [GitHub](https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project). _Last Updated 03.28.2020._
 
 ## Description
 
-This application lets the user... and does...
-It might even be hosted on hosted on [GitHub](https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project). It does so using this and this technology or concept.
+This application lets the user create an account and login to organize their personal library or virtual reading shelves, letting them add books and authors. Ability to add multiple authors to a book or multiple books to an author is included, in addition to edit and delete functionality.
+
+This project was developed in C# on the .NET Core platform with ASP.NET Core web processing, using MVC pattern libraries, Razor dynamic templating, and a SQL database. Specifically, the app was built using Entity Framework and MySQL to create the schema, and it's hosted on [GitHub](https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project).
+
+#### Epicodus skills:
+
+- C#, HTML, CSS
+- Razor view on pages
+- MVC pattern (with ASP .NET Core 2.2)
+- RESTful routing and CRUD
+- many-to-many database relationships
+- Entity framework migrations
+- Identity and authorization
+- Asynchronous code
+- MySQL Workbench and server
+- Bootstrap library
+- Behavior driven development (BDD)
+- Git version control and GitHub
 
 ## Installation / Set-up
 
@@ -18,12 +34,15 @@ Download or clone the repository to run this program locally! _This program requ
     - Select "Download" on the [GitHub Repository](https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project) site
     - Once downloaded, open the ZIP and extract files. The new folder will be created as 'Week-12-Advanced-Databases-and-Authentication-Project'.
   - **To Clone:**
-    - Clone from command line into your Desktop: `$ git clone https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project`
+    - Clone from command line into your Desktop: \$ `git clone https://github.com/KristaRutz/Week-12-Advanced-Databases-and-Authentication-Project`
     - The new directory will be created as 'Desktop/Week-12-Advanced-Databases-and-Authentication-Project'.
 - Once you have stored the files locally, execute the following commands.
-  - Navigate to the application directory: `$ cd Desktop/Week-12-Advanced-Databases-and-Authentication-Project/BookClub`
-  - `dotnet build`
-  - `dotnet run`
+  - Navigate to the application directory: \$ `cd Desktop/Week-12-Advanced-Databases-and-Authentication-Project/BookClub`
+  - \$ `dotnet restore`
+  - \$ `dotnet ef migrations add Initial`
+  - \$ `dotnet ef database update`
+  - \$ `dotnet build`
+  - \$ `dotnet run`
 - Upon success, the program will begin running in your console.
 
 ## Technologies Used
@@ -32,7 +51,7 @@ Download or clone the repository to run this program locally! _This program requ
   - Server-side in C#
     - C# Back-end
     - HTML, CSS, and C# front-end
-- ASP.NET Core and Razor templating
+- ASP .NET Core and Razor templating
   - client-side in JavaScript
 - SQL database
 
@@ -46,13 +65,13 @@ Build an application with user authentication and a many-to-many relationship. H
 
 Your code will be reviewed for the following objectives:
 
-- [ ] Does at least one of your classes have all CRUD methods implemented in your app?
-- [ ] Are you able to view both sides of the many-many relationship? For a particular instance of a class, are you able to view all of the instances of the other class that are related to it?
-- [ ] Are users able to register, log in and log out with Identity?
+- [x] Does at least one of your classes have all CRUD methods implemented in your app?
+- [x] Are you able to view both sides of the many-many relationship? For a particular instance of a class, are you able to view all of the instances of the other class that are related to it?
+- [x] Are users able to register, log in and log out with Identity?
 - [ ] Is Create, Update and Delete functionality limited to authenticated users?
-- [ ] Is the project in a polished, portfolio-quality state?
+- [x] Is the project in a polished, portfolio-quality state?
 - [ ] Was required functionality in place by the 5:00pm Friday deadline?
-- [ ] Does the project demonstrate all of this week's concepts? If prompted, are you able to discuss your code with an instructor using correct terminology?
+- [x] Does the project demonstrate all of this week's concepts? If prompted, are you able to discuss your code with an instructor using correct terminology?
 
 <details>
   <summary>Expand specs for this project</summary>
