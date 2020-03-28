@@ -37,7 +37,7 @@ namespace BookClub.Controllers
     public ActionResult AddAuthor(int id)
     {
       var thisBook = _db.Books.FirstOrDefault(b => b.BookId == id);
-      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "FirstName");
       return View(thisBook);
     }
 
