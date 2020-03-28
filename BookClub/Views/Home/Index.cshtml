@@ -1,21 +1,39 @@
 <h1>Book Club</h1>
 <br>
+<div>
+  <br>
+  <p>@Html.ActionLink("See all books", "Index", "Books", new { @class = "btn btn-light"})</p>
+  <p>@Html.ActionLink("See all authors", "Index", "Authors", new { @class = "btn btn-light"})</p>
+</div>
 <div class="row">
   <div class="col col-lg-4">
     <h2>books</h2>
-    <hr>
+    <table class="table table-striped">
+      @foreach (Book book in ViewBag.BookList)
+      {
+        <tr>
+          <td>@book.Title</td>
+        </tr>
+      }
+    </table>
   </div>
   <div class="col col-lg-4">
     <h2>authors</h2>
-    <hr>
+    <table class="table table-striped">
+      @foreach (Author author in ViewBag.AuthorList)
+      {
+        <tr>
+          <td>@author.Name</td>
+        </tr>
+      }
+    </table>
   </div>
   <div class="col col-lg-4">
     <h2>genres</h2>
     <hr>
   </div>
 </div>
-<br>
-<br>
-<p>@Html.ActionLink("See all books", "Index", "Books")</p>
-<p>@Html.ActionLink("See all authors", "Index", "Authors")</p>
+
+
+
 

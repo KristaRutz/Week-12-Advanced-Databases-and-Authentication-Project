@@ -1,0 +1,19 @@
+@model BookClub.Models.Author
+
+<h2>Add a book</h2>
+<hr>
+<h4>Add a book to @Html.DisplayFor(m => m.Name)</h4>
+<hr>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.AuthorId)
+
+    <div class="form-group">
+        @Html.Label("Select book")
+        @Html.DropDownList("BookId", ViewBag.BookId, "Select work", new { @class = "form-control form-control-sm" })
+    </div>
+
+    <input class="btn btn-default" type="submit" value="Save" />
+}
+<hr>
+<p>@Html.ActionLink("Cancel", "Index")</p>

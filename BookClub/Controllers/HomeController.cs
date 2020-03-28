@@ -6,11 +6,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookClub.Controllers
 {
-  public class HomeController: Controller
+  public class HomeController : Controller
   {
+
+    private readonly BookClubContext _db;
+    public HomeController(BookClubContext db)
+    {
+      _db = db;
+    }
+
     [HttpGet("/")]
     public ActionResult Index()
     {
+      ViewBag.BookList = _db.Books.ToList();
+      ViewBag.AuthorList = _db.Authors.ToList();
       return View();
     }
   }

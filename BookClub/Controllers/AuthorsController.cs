@@ -3,6 +3,7 @@ using BookClub.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookClub.Controllers
 {
@@ -50,6 +51,25 @@ namespace BookClub.Controllers
     public ActionResult Edit(Author author)
     {
       _db.Entry(author).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+
+    public ActionResult AddBook(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
+      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Title");
+      return View(thisAuthor);
+    }
+
+    [HttpPost]
+    public ActionResult AddBook(Author author, int BookId)
+    {
+      if (BookId != 0)
+      {
+        _db.AuthorBook.Add(new AuthorBook() { BookId = BookId, AuthorId = author.AuthorId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
