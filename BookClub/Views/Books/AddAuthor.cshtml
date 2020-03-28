@@ -9,10 +9,12 @@
 {
     @Html.HiddenFor(m => m.BookId)
 
-    @Html.Label("Select author")
-    @Html.DropDownList("AuthorId")
+    <div class="form-group">
+        @Html.Label("Select author")
+        @Html.DropDownList("AuthorId", ViewBag.AuthorId, "Select Author", new { @class = "form-control form-control-sm" })
+    </div>
 
-    <input type="submit" value="Save" />
+    <input class="btn btn-default" type="submit" value="Save" />
 }
 
 <p>@Html.ActionLink("Cancel", "Index")</p>

@@ -11,7 +11,7 @@
           author.
         }
       </td> *@
-      <td><a asp-action="Details">View Details</a></td>
+      <td><a asp-action="Edit" asp-route-id="@book.BookId">View Edit</a></td>
       <td>@Html.ActionLink("Add author", "AddAuthor", new { id = book.BookId })</td>
     </tr>
   }

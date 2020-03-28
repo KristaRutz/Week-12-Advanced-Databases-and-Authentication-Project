@@ -11,7 +11,7 @@ namespace BookClub.Models
     public string Title { get; set; }
 
     [Display(Name = "Publication year")]
-    public DateTime PublicationYear { get; set; }
+    public int PublicationYear { get; set; }
     public string ISBN { get; set; }
     public virtual ICollection<AuthorBook> Authors { get; set; }
     public virtual ICollection<BookGenre> Genres { get; set; }

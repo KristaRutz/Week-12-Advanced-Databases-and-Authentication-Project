@@ -1,9 +1,11 @@
 @model BookClub.Models.Book
 
-<h1>Add New Book</h1>
+<h1>Edit Book</h1>
 
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.BookId)
+  
   <div class="form-group">
     @Html.LabelFor(m => m.Title)
     @Html.TextBoxFor(m => m.Title, new { @class = "form-control"})
@@ -21,7 +23,7 @@
     @Html.DropDownList("AuthorId", ViewBag.AuthorId, "Select Author", new { @class = "form-control form-control-sm" })
   </div>
   <div class="form-group">
-    <input class="btn btn-default" type="submit" value="Add Book">
+    <input class="btn btn-default" type="submit" value="Save Changes">
     <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
   </div>
 }

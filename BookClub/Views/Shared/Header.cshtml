@@ -1,15 +1,15 @@
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline" method="post">
     <div class="form-group">
-      <button class="btn btn-light mb-2"><a  asp-controller="Home" asp-action="Index">Book Club Home</a></button>
-      <button class="form-control btn btn-light mb-2"><a  asp-controller="Account" asp-action="Index">My Account</a></button>
+      <button class="form-control btn btn-light mb-2"><a asp-controller="Home" asp-action="Index">Book Club Home</a></button>
+      <button class="form-control btn btn-light mb-2"><a asp-controller="Account" asp-action="Index">My Account</a></button>
       @if (User.Identity.IsAuthenticated)
       {
-      <button class="btn btn-light mb-2" asp-controller="Account" asp-action="LogOff">Log out @User.Identity.Name</button>
+      <button class="form-control btn btn-light mb-2" asp-controller="Account" asp-action="LogOff">Log out @User.Identity.Name</button>
       }
       else
       {
-        <button class="btn btn-light mb-2"><a  asp-controller="Account" asp-action="Login">Login</a></button>
+        <button class="form-control btn btn-light mb-2"><a  asp-controller="Account" asp-action="Login">Login</a></button>
       } 
     </div>
   </form>

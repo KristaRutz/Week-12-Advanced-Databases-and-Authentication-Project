@@ -44,8 +44,8 @@ div.container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* margin-top: 30px; */
-  min-height: 60vh;
+  /* margin-top: 30px;
+  min-height: 60vh; */
   margin-bottom: 150px;
   padding: 10%;
   border-radius: 10px;

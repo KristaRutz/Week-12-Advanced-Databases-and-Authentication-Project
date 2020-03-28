@@ -23,6 +23,7 @@ namespace BookClub.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
       return View();
     }
 
@@ -34,10 +35,17 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Edit(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(b => b.BookId == id);
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
+      return View(thisBook);
+    }
+
     public ActionResult AddAuthor(int id)
     {
       var thisBook = _db.Books.FirstOrDefault(b => b.BookId == id);
-      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "FirstName");
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
       return View(thisBook);
     }
 

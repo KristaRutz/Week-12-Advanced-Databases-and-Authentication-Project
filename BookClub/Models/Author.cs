@@ -12,6 +12,14 @@ namespace BookClub.Models
 
     [Display(Name = "Last name")]
     public string LastName { get; set; }
+
+    public string Name
+    {
+      get
+      {
+        return $"{this.FirstName} {this.LastName}";
+      }
+    }
     public virtual ICollection<AuthorBook> Books { get; set; }
     public virtual ICollection<AuthorGenre> Genres { get; set; }
 
