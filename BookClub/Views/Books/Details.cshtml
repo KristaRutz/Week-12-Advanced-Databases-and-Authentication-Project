@@ -1,0 +1,25 @@
+@model BookClub.Models.Book
+
+<h1>@Model.Title</h1>
+
+<h4>Authors</h4>
+@if (@Model.Authors.Count == 0)
+{
+    <p>No author found.</p>
+}
+<p>test</p>
+@foreach (var join in @Model.Authors)
+{
+  <div class="form-group">
+    <p>@join.Author.Name</p>
+    @using (Html.BeginForm("DeleteJoin", "Books"))
+    {
+      @Html.Hidden("joinId", @join.AuthorBookId)
+      <input class="btn btn-light btn-sm" type="submit" value="Delete this Author"/>
+    }
+  </div>
+}
+
+<h4>Publication Information</h4>
+<p><strong>Published</strong>: @Model.PublicationYear</p>
+<p><strong>ISBN</strong>: @Model.ISBN</p>

@@ -6,6 +6,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using Microsoft.EntityFrameworkCore;
 
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
+
 namespace BookClub.Controllers
 {
   public class BooksController : Controller
@@ -19,6 +24,15 @@ namespace BookClub.Controllers
     {
       List<Book> model = _db.Books.ToList();
       return View(model);
+    }
+
+    public ActionResult Details(int id)
+    {
+      Book thisBook = _db.Books
+        .Include(b => b.Authors)
+        .ThenInclude(join => join.Author)
+        .FirstOrDefault(b => b.BookId == id);
+      return View(thisBook);
     }
 
     public ActionResult Create()
@@ -42,6 +56,18 @@ namespace BookClub.Controllers
       return View(thisBook);
     }
 
+    [HttpPost]
+    public ActionResult Edit(Book book, int AuthorId)
+    {
+      if (AuthorId != 0)
+      {
+        _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId });
+      }
+      _db.Entry(book).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
     public ActionResult AddAuthor(int id)
     {
       var thisBook = _db.Books.FirstOrDefault(b => b.BookId == id);
@@ -56,6 +82,15 @@ namespace BookClub.Controllers
       {
         _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId });
       }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      var joinEntry = _db.AuthorBook.FirstOrDefault(entry => entry.AuthorBookId == joinId);
+      _db.AuthorBook.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

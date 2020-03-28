@@ -19,6 +19,14 @@ namespace BookClub.Controllers
       return View(model);
     }
 
+    public ActionResult Details(int id)
+    {
+      Author thisAuthor = _db.Authors
+        .Include(a => a.Books)
+        .ThenInclude(join => join.Book)
+        .FirstOrDefault(a => a.AuthorId == id);
+      return View(thisAuthor);
+    }
     public ActionResult Create()
     {
       return View();
@@ -28,6 +36,29 @@ namespace BookClub.Controllers
     public ActionResult Create(Author author)
     {
       _db.Authors.Add(author);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Edit(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
+      return View(thisAuthor);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Author author)
+    {
+      _db.Entry(author).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteJoin(int joinId)
+    {
+      var joinEntry = _db.AuthorBook.FirstOrDefault(entry => entry.AuthorBookId == joinId);
+      _db.AuthorBook.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

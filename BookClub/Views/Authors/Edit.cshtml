@@ -1,0 +1,23 @@
+@model BookClub.Models.Author
+
+<h1>Edit Author</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(m => m.AuthorId)
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      @Html.LabelFor(m => m.FirstName)
+      @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control"})
+    </div>
+    <div class="form-group col-md-6">
+      @Html.LabelFor(m => m.LastName)
+      @Html.TextBoxFor(m => m.LastName, new { @class = "form-control"})
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-default" type="submit" value="Save Changes">
+    <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
+  </div>
+}

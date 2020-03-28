@@ -4,9 +4,9 @@
   @foreach (Author author in Model)
   {
     <tr>
-      <td>@author.FirstName</td>
-      <td>@author.LastName</td>
-      <td><a asp-action="Details">View Details</a></td>
+      <td>@author.Name</td>
+      <td><a asp-action="Details" asp-route-id="@author.AuthorId">View Details</a></td>
+      <td>@Html.ActionLink("Edit author", "Edit", new { id = author.AuthorId })</td>
     </tr>
   }
 </table>
