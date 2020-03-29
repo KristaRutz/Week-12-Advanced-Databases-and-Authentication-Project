@@ -1,17 +1,20 @@
 <h1>Genres</h1>
 
-<table>
+@if (Model.Count == 0)
+{
+  <div class="alert alert-primary" role="alert">
+    There are no genres in the system.
+  </div>
+}
+
+<table class="table table-striped">
   @foreach (Genre genre in Model)
   {
-    <td>@genre.Name</td>
-    @* <td>
-      @foreach (AuthorGenre author in Genre.Authors)
-      {
-        author.
-      }
-    </td> *@
-    <td><a asp-action="Details">View Details</a></td>
+    <tr>
+      <td>@genre.Name</td>
+      <td><a asp-action="Details" asp-route-id="@genre.GenreId">View Details</a></td>
+    </tr>
   }
 </table>
 
-<a asp-action="Create">Add Genre</a>
+<a class="btn btn-light" asp-action="Create">Add Genre</a>

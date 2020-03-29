@@ -1,0 +1,39 @@
+@model BookClub.Models.Book
+
+<h1>@Model.Title</h1>
+<hr>
+<h4>Authors</h4>
+<hr>
+@if (@Model.Authors.Count == 0)
+{
+  <p>No author found.</p>
+  <div>
+    <a class="btn btn-light" asp-action="AddAuthor" asp-route-id="@Model.BookId">Add author?</a>
+  </div>
+}
+else
+{
+  @foreach (var join in @Model.Authors)
+  {
+    <div class="form-group">
+      <p>@join.Author.Name</p>
+      @using (Html.BeginForm("DeleteJoin", "Books"))
+      {
+        @Html.Hidden("joinId", @join.AuthorBookId)
+        <input class="btn btn-light btn-sm" type="submit" value="Remove this Author"/>
+      }
+    </div>
+  }
+  <div>
+    <a class="btn btn-light" asp-action="AddAuthor" asp-route-id="@Model.BookId">Add author?</a>
+  </div>
+}
+<hr>
+<h4>Publication Information</h4>
+<p><strong>Published</strong>: @Model.PublicationYear</p>
+<p><strong>ISBN</strong>: @Model.ISBN</p>
+<hr>
+<div>
+  <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.BookId">Edit book</a>
+  <a class="btn btn-light" asp-action="CheckDelete" asp-route-id="@Model.BookId">Delete book</a>
+</div>
