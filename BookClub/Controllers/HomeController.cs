@@ -20,6 +20,7 @@ namespace BookClub.Controllers
     {
       ViewBag.BookList = _db.Books.ToList();
       ViewBag.AuthorList = _db.Authors.ToList();
+      ViewBag.GenreList = _db.Genres.ToList();
       return View();
     }
   }

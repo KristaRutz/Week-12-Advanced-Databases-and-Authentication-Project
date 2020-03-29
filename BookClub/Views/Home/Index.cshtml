@@ -1,13 +1,8 @@
 <h1>Book Club</h1>
 <br>
-<div>
-  <br>
-  <p>@Html.ActionLink("See all books", "Index", "Books", new { @class = "btn btn-light"})</p>
-  <p>@Html.ActionLink("See all authors", "Index", "Authors", new { @class = "btn btn-light"})</p>
-</div>
 <div class="row">
   <div class="col col-lg-4">
-    <h2>books</h2>
+    <h2><a asp-controller="Books" asp-action="Index">books</a></h2>
     <table class="table table-striped">
       @foreach (Book book in ViewBag.BookList)
       {
@@ -18,7 +13,7 @@
     </table>
   </div>
   <div class="col col-lg-4">
-    <h2>authors</h2>
+    <h2><a asp-controller="Authors" asp-action="Index">authors</a></h2>
     <table class="table table-striped">
       @foreach (Author author in ViewBag.AuthorList)
       {
@@ -29,8 +24,15 @@
     </table>
   </div>
   <div class="col col-lg-4">
-    <h2>genres</h2>
-    <hr>
+    <h2><a asp-controller="Genres" asp-action="Index">genres</a></h2>
+    <table class="table table-striped">
+      @foreach (Genre genre in ViewBag.GenreList)
+      {
+        <tr>
+          <td>@genre.Name</td>
+        </tr>
+      }
+    </table>
   </div>
 </div>
 
