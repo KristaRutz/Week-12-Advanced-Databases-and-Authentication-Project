@@ -7,16 +7,15 @@
 {
   <div class="form-group">
     @Html.LabelFor(user => user.Email)
-    @Html.TextBoxFor(user => user.Email, new { @class = "form-control"})
+    <input class="form-control" asp-for="Email" required>
   </div>
   <div class="form-group">
     @Html.LabelFor(user => user.Password)
-    <input class="form-control" asp-for="Password">
-    @* @Html.TextBoxFor(user => user.Email) *@
+    <input class="form-control" asp-for="Password" required>
   </div>
   <div class="form-group">
     @Html.LabelFor(user => user.ConfirmPassword)
-    @Html.PasswordFor(user => user.ConfirmPassword, new { @class = "form-control"})
+    <input class="form-control" asp-for="ConfirmPassword" required>
   </div>
   <input class="btn btn-default" type="submit" value="Register">
   <small class="form-text text-muted">Already have an account? <a asp-action="Login">Sign in.</a></small>
