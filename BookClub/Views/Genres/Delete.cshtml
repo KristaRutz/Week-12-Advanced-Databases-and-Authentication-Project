@@ -1,16 +1,16 @@
-@model BookClub.Models.Book
+@model BookClub.Models.Genre
 
-<h1>Delete Book?</h1>
+<h1>Delete Genre?</h1>
 
 <div class="alert alert-danger" role="alert">
-  Are you sure you want to delete <em>@Model.Title</em>? This action cannot be undone.
+  Are you sure you want to delete <em>@Model.Name</em>? Associated book and author information will be lost.
 </div>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.BookId)
+  @Html.HiddenFor(model => model.GenreId)
   <div class="form-group">
-    <input class="btn btn-default" type="submit" value="Delete permanently" asp-action="Delete" asp-route-id="@Model.BookId">
+    <input class="btn btn-default" type="submit" value="Delete permanently" asp-action="Delete" asp-route-id="@Model.GenreId">
     <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>
   </div>
 }
