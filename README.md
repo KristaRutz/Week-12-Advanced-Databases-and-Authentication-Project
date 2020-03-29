@@ -68,9 +68,9 @@ Your code will be reviewed for the following objectives:
 - [x] Does at least one of your classes have all CRUD methods implemented in your app?
 - [x] Are you able to view both sides of the many-many relationship? For a particular instance of a class, are you able to view all of the instances of the other class that are related to it?
 - [x] Are users able to register, log in and log out with Identity?
-- [ ] Is Create, Update and Delete functionality limited to authenticated users?
+- [x] Is Create, Update and Delete functionality limited to authenticated users?
 - [x] Is the project in a polished, portfolio-quality state?
-- [ ] Was required functionality in place by the 5:00pm Friday deadline?
+- [o] Was required functionality in place by the 5:00pm Friday deadline?
 - [x] Does the project demonstrate all of this week's concepts? If prompted, are you able to discuss your code with an instructor using correct terminology?
 
 <details>

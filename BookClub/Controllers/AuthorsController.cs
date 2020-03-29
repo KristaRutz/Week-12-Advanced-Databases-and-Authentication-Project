@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookClub.Controllers
 {
+
+  [Authorize]
   public class AuthorsController : Controller
   {
     private readonly BookClubContext _db;
@@ -14,12 +17,15 @@ namespace BookClub.Controllers
     {
       _db = db;
     }
+
+    [AllowAnonymous]
     public ActionResult Index()
     {
       List<Author> model = _db.Authors.ToList();
       return View(model);
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       Author thisAuthor = _db.Authors

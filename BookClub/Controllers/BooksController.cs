@@ -30,6 +30,16 @@ namespace BookClub.Controllers
       return View(model);
     }
 
+    [AllowAnonymous]
+    public ActionResult Details(int id)
+    {
+      Book thisBook = _db.Books
+        .Include(b => b.Authors)
+        .ThenInclude(join => join.Author)
+        .FirstOrDefault(b => b.BookId == id);
+      return View(thisBook);
+    }
+
     public ActionResult Create()
     {
       ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
@@ -44,15 +54,6 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
-    [AllowAnonymous]
-    public ActionResult Details(int id)
-    {
-      Book thisBook = _db.Books
-        .Include(b => b.Authors)
-        .ThenInclude(join => join.Author)
-        .FirstOrDefault(b => b.BookId == id);
-      return View(thisBook);
-    }
     public ActionResult Edit(int id)
     {
       var thisBook = _db.Books.FirstOrDefault(b => b.BookId == id);
