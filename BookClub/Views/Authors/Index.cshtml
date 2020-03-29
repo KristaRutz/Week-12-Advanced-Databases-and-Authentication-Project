@@ -1,5 +1,12 @@
 <h1>Authors</h1>
 
+@if (Model.Count == 0)
+{
+  <div class="alert alert-primary" role="alert">
+    There are no authors in the system.
+  </div>
+}
+
 <table class="table table-striped">
   @foreach (Author author in Model)
   {
@@ -11,4 +18,4 @@
   }
 </table>
 <br>
-<a asp-action="Create">Add author</a>
+<a class="btn btn-light" asp-action="Create">Add author</a>

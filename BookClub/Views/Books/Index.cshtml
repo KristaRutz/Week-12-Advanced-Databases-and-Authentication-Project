@@ -1,5 +1,12 @@
 <h1>Books</h1>
 
+@if (Model.Count == 0)
+{
+  <div class="alert alert-primary" role="alert">
+    There are no books in the system.
+  </div>
+}
+
 <table class="table table-striped">
   @foreach (Book book in Model)
   {
@@ -18,5 +25,4 @@
   }
 </table>
 
-<a asp-action="Create">Add book</a>
-<a asp-controller="Home">Home</a>
+<a class="btn btn-light" asp-action="Create">Add book</a>
