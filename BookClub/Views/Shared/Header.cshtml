@@ -1,16 +1,46 @@
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline" method="post">
-    <div class="form-group">
-      <button class="form-control btn btn-light mb-2"><a asp-controller="Home" asp-action="Index">Book Club Home</a></button>
-      <button class="form-control btn btn-light mb-2"><a asp-controller="Account" asp-action="Index">My Account</a></button>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="btn btn-light mb-2" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i></a>
+  <button class="navbar-toggler mr-auto" type="menu" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <a class="btn btn-light mb-2" asp-controller="Books" asp-action="Index">Books</a>
+      </li>
+      <li>
+        <a class="btn btn-light mb-2" asp-controller="Authors" asp-action="Index">Authors</a>
+      </li>
+      <li>
+        <a class="btn btn-light mb-2" asp-controller="Genres" asp-action="Index">Genres</a>
+      </li>
       @if (User.Identity.IsAuthenticated)
       {
-      <button class="form-control btn btn-light mb-2" asp-controller="Account" asp-action="LogOff">Log out @User.Identity.Name</button>
+        <li class="nav-item dropdown mr-auto">
+          <a class="btn btn-light dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @User.Identity.Name
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" asp-controller="Account" asp-action="Index">My account</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">My books</a>
+            <a class="dropdown-item" href="#">My authors</a>
+            <a class="dropdown-item" href="#">My genres</a>
+            <div class="dropdown-divider"></div>
+            <form method="post">
+              <input type="submit" class="dropdown-item btn btn-light mb-2" asp-controller="Account" asp-action="LogOff" value="Sign out"/>
+            </form>
+          </div>
+        </li>
       }
       else
       {
-        <button class="form-control btn btn-light mb-2"><a  asp-controller="Account" asp-action="Login">Login</a></button>
-      } 
-    </div>
-  </form>
+        <li>
+          <a class="btn btn-light mb-2" asp-controller="Account" asp-action="Login">Sign In</a>
+        </li>        
+      }
+    </ul>
+  </div>
+
 </nav>
