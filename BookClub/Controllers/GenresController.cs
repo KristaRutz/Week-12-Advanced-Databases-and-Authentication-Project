@@ -92,11 +92,38 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddBook(int id)
+    {
+      var thisGenre = _db.Genres.FirstOrDefault(a => a.GenreId == id);
+      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Title");
+      return View(thisGenre);
+    }
+
     [HttpPost]
-    public ActionResult DeleteJoin(int joinId)
+    public ActionResult AddBook(Genre genre, int BookId)
+    {
+      if (BookId != 0)
+      {
+        _db.BookGenre.Add(new BookGenre() { BookId = BookId, GenreId = genre.GenreId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteAuthor(int joinId)
     {
       var joinEntry = _db.AuthorGenre.FirstOrDefault(entry => entry.AuthorGenreId == joinId);
       _db.AuthorGenre.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteBook(int joinId)
+    {
+      var joinEntry = _db.BookGenre.FirstOrDefault(entry => entry.BookGenreId == joinId);
+      _db.BookGenre.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

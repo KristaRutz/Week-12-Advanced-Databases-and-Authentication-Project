@@ -2,6 +2,7 @@
 
 <h1>@Model.Name</h1>
 <hr>
+
 <h4>Works</h4>
 <hr>
 @if (@Model.Books.Count == 0)
@@ -17,7 +18,7 @@ else
   {
     <div class="form-group">
       <p>@join.Book.Title</p>
-      @using (Html.BeginForm("DeleteJoin", "Authors"))
+      @using (Html.BeginForm("DeleteBook", "Authors"))
       {
         @Html.Hidden("joinId", @join.AuthorBookId)
         <input class="btn btn-light btn-sm" type="submit" value="Remove this work"/>
@@ -29,6 +30,36 @@ else
   </div>
 }
 <hr>
+
+<h4>Genres</h4>
+<hr>
+@if (@Model.Genres.Count == 0)
+{
+  <p>No genres yet.</p>
+  <div>
+    <a class="btn btn-light" asp-action="AddGenre" asp-route-id="@Model.AuthorId">Add genre?</a>
+  </div>
+}
+else
+{
+  <ul>
+    @foreach (var join in @Model.Genres)
+    {
+      <li>@join.Genre.Name
+        @using (Html.BeginForm("DeleteGenre", "Authors"))
+        {
+          @Html.Hidden("joinId", @join.AuthorGenreId)
+          <input class="btn btn-light btn-sm" type="submit" value="Remove this genre"/>
+        }
+      </li>
+    }
+  </ul>
+  <div>
+    <a class="btn btn-light" asp-action="AddGenre" asp-route-id="@Model.AuthorId">Add another genre?</a>
+  </div>
+}
+<hr>
+
 <div>
   <a class="btn btn-light" asp-action="Index">Back to authors</a>
   <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.AuthorId">Edit author</a>

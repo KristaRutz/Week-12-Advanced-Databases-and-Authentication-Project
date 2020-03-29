@@ -31,6 +31,8 @@ namespace BookClub.Controllers
       Author thisAuthor = _db.Authors
         .Include(a => a.Books)
         .ThenInclude(join => join.Book)
+        .Include(a => a.Genres)
+        .ThenInclude(join => join.Genre)
         .FirstOrDefault(a => a.AuthorId == id);
       return View(thisAuthor);
     }
@@ -61,7 +63,6 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
-
     public ActionResult AddBook(int id)
     {
       var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
@@ -80,11 +81,38 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddGenre(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(a => a.AuthorId == id);
+      ViewBag.GenreId = new SelectList(_db.Genres, "GenreId", "Name");
+      return View(thisAuthor);
+    }
+
     [HttpPost]
-    public ActionResult DeleteJoin(int joinId)
+    public ActionResult AddGenre(Author author, int GenreId)
+    {
+      if (GenreId != 0)
+      {
+        _db.AuthorGenre.Add(new AuthorGenre() { GenreId = GenreId, AuthorId = author.AuthorId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteBook(int joinId)
     {
       var joinEntry = _db.AuthorBook.FirstOrDefault(entry => entry.AuthorBookId == joinId);
       _db.AuthorBook.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteGenre(int joinId)
+    {
+      var joinEntry = _db.AuthorGenre.FirstOrDefault(entry => entry.AuthorGenreId == joinId);
+      _db.AuthorGenre.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
