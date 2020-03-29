@@ -16,6 +16,8 @@ namespace BookClub.Models
     public virtual ICollection<AuthorBook> Authors { get; set; }
     public virtual ICollection<BookGenre> Genres { get; set; }
 
+    // make a virtual ICollection of Users here (and BOOKS in user model, plus a join table) so books can be added to a User's book list
+
     public Book()
     {
       this.Authors = new HashSet<AuthorBook>();
