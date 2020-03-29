@@ -11,8 +11,10 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
+
 namespace BookClub.Controllers
 {
+  [Authorize]
   public class BooksController : Controller
   {
     private readonly BookClubContext _db;
@@ -20,6 +22,8 @@ namespace BookClub.Controllers
     {
       _db = db;
     }
+
+    [AllowAnonymous]
     public ActionResult Index()
     {
       List<Book> model = _db.Books.ToList();
@@ -40,6 +44,7 @@ namespace BookClub.Controllers
       return RedirectToAction("Index");
     }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       Book thisBook = _db.Books
