@@ -1,26 +1,13 @@
-@model BookClub.Models.Book
+@model BookClub.Models.Genre
 
-<h1>Edit Book</h1>
+<h1>Edit Genre</h1>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.BookId)
-  
+  @Html.HiddenFor(model => model.GenreId)
   <div class="form-group">
-    @Html.LabelFor(m => m.Title)
-    @Html.TextBoxFor(m => m.Title, new { @class = "form-control"})
-  </div>
-  <div class="form-group">
-    @Html.LabelFor(m => m.PublicationYear)
-    <input class="form-control" type="number" asp-for="PublicationYear">
-  </div>
-  <div class="form-group">
-    @Html.LabelFor(m => m.ISBN)
-    @Html.TextBoxFor(m => m.ISBN, new { @class = "form-control"})
-  </div>
-  <div class="form-group">
-    @Html.Label("Select author")
-    @Html.DropDownList("AuthorId", ViewBag.AuthorId, "Select Author", new { @class = "form-control form-control-sm" })
+    @Html.LabelFor(m => m.Name)
+    <input class="form-control" type="text" asp-for="Name">
   </div>
   <div class="form-group">
     <input class="btn btn-default" type="submit" value="Save Changes">
