@@ -34,6 +34,7 @@ else
 <p><strong>ISBN</strong>: @Model.ISBN</p>
 <hr>
 <div>
+  <a class="btn btn-light" asp-action="Index">Back to books</a>
   <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.BookId">Edit book</a>
   <a class="btn btn-light" asp-action="CheckDelete" asp-route-id="@Model.BookId">Delete book</a>
 </div>
