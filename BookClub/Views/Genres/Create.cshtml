@@ -8,10 +8,6 @@
     @Html.LabelFor(m => m.Name)
     <input class="form-control" type="text" asp-for="Name">
   </div>
-  @* <div class="form-group">
-    @Html.Label("Select author")
-    @Html.DropDownList("AuthorId", ViewBag.AuthorId, "Select Author", new { @class = "form-control form-control-sm" })
-  </div> *@
   <div class="form-group">
     <input class="btn btn-default" type="submit" value="Add Genre">
     <small class="form-text text-muted"><a asp-action="Index">Cancel</a></small>

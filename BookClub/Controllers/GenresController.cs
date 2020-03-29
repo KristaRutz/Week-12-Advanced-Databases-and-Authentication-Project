@@ -44,8 +44,6 @@ namespace BookClub.Controllers
 
     public ActionResult Create()
     {
-      // ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "Name");
-      // Either delete above line, or add the Book list here as well.
       return View();
     }
 
