@@ -44,14 +44,9 @@ div.container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* margin-top: 30px;
-  min-height: 60vh; */
-  margin-bottom: 150px;
-  padding: 10%;
+  margin-bottom: 50px;
+  padding: 4%;
   border-radius: 10px;
-  height: 80%;
-  background: rgb(204, 204, 204);
-  background: rgba(255, 255, 255, 0.95);
 }
 
 div#footer {
