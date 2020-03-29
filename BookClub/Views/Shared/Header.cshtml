@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
   <a class="btn btn-light mb-2" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i></a>
   <button class="navbar-toggler mr-auto" type="menu" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,6 +15,8 @@
       <li>
         <a class="btn btn-light mb-2" asp-controller="Genres" asp-action="Index">Genres</a>
       </li>
+    </ul>
+    <ul class="navbar-nav">
       @if (User.Identity.IsAuthenticated)
       {
         <li class="nav-item dropdown mr-auto">
